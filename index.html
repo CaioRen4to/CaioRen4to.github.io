@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-q14UAmi/EdxQjcZFbrvu6r/sYuVZwkqd5fqadED+rmw='; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caio Renato · Pokédex Dev — Backend Python, React, Dados e IA</title>
+  <meta name="description" content="Portfólio de Caio Renato, estudante de ADS em João Pessoa/BR: Backend Python, React PWA, PostgreSQL, automações n8n e IA aplicada. Conheça o Fluire e o Agent Company.">
+  <link rel="canonical" href="https://caioren4to.github.io/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0B0F17" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caioren4to.github.io/">
+  <meta property="og:title" content="Caio Renato · Pokédex Dev">
+  <meta property="og:description" content="Backend Python, React PWA, PostgreSQL, automações n8n e IA aplicada. Projetos: Fluire e Agent Company.">
+  <meta property="og:image" content="https://caioren4to.github.io/previews/social-preview-portfolio.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Caio Renato, Pokédex Dev: Backend Python, React PWA, PostgreSQL, n8n e IA, com um Mega Charizard X animado">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://caioren4to.github.io/previews/social-preview-portfolio.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231E293B'/%3E%3Cpath d='M1 16a15 15 0 0 1 30 0z' fill='%234F46E5'/%3E%3Crect x='1' y='14.5' width='30' height='3' fill='%230B0F17'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%230B0F17' stroke='%2322D3EE' stroke-width='2'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var asked = (location.search.match(/[?&]theme=(dark|light)/) || [])[1];
+        var saved = asked || localStorage.getItem('cr-portfolio-theme');
+        var theme = saved === 'light' || saved === 'dark' ? saved : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        root.setAttribute('data-theme', theme);
+      } catch (e) { /* localStorage indisponível: mantém o tema escuro */ }
+      root.classList.add('js');
+      /* Se app.js não carregar, devolve o conteúdo visível (sem seções escondidas). */
+      setTimeout(function () { if (!root.classList.contains('ready')) root.classList.remove('js'); }, 4000);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <noscript><link rel="stylesheet" href="noscript.css"></noscript>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#topo" aria-label="Caio Renato, início">
+        <svg class="pokeball" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="14" class="pb-bottom"/>
+          <path d="M2 16a14 14 0 0 1 28 0z" class="pb-top"/>
+          <rect x="2" y="14.5" width="28" height="3" class="pb-band"/>
+          <circle cx="16" cy="16" r="4.5" class="pb-btn"/>
+        </svg>
+        <span>Caio Renato</span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav" aria-label="Principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#moveset">Move Set</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="theme-btn" type="button" id="theme-toggle" aria-label="Alternar entre tema escuro e claro">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="icon-moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/><g class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="topo" aria-labelledby="hero-title">
+      <canvas class="embers" id="embers" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="pill"><span class="led" aria-hidden="true"></span>POKÉDEX DEV · ADS 2026</p>
+          <p class="hello">Olá! Eu sou</p>
+          <h1 id="hero-title">Caio Renato</h1>
+          <p class="tagline" id="tagline" data-phrases='["Capturando bugs e automatizando processos.","Transformando dados em inteligência.","Construindo APIs, SaaS e sistemas multiagente."]'>Capturando bugs e automatizando processos.</p>
+          <p class="lead">Estudante de Análise e Desenvolvimento de Sistemas em João Pessoa, Brasil. Crio sistemas completos de ponta a ponta: Backend Python, interfaces React PWA, PostgreSQL, automações com n8n e IA aplicada.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-ghost" href="#contato">Falar comigo</a>
+          </div>
+          <ul class="meta" aria-label="Resumo">
+            <li>João Pessoa, BR</li>
+            <li>Backend Python</li>
+            <li>React PWA</li>
+            <li>PostgreSQL</li>
+            <li>n8n &amp; IA</li>
+          </ul>
+        </div>
+        <div class="stage" id="stage">
+          <div class="aura" aria-hidden="true"></div>
+          <div class="tilt" id="tilt"><picture><source srcset="assets/mega-charizard-x-static.png" media="(prefers-reduced-motion: reduce)"><img class="mega" id="mega" src="assets/mega-charizard-x.gif" width="161" height="107" alt="Mega Charizard X animado, o Pokémon parceiro do portfólio"></picture></div>
+          <div class="ground" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sobre" aria-labelledby="sobre-title">
+      <div class="wrap">
+        <p class="eyebrow">Ficha do treinador</p>
+        <h2 id="sobre-title">Quem sou eu</h2>
+        <div class="about-grid">
+          <article class="card">
+            <h3>O que estudo</h3>
+            <p>Backend Python, desenvolvimento web com React e PWA, bancos de dados PostgreSQL e SQL, automação de processos e inteligência artificial aplicada.</p>
+          </article>
+          <article class="card">
+            <h3>O que construo</h3>
+            <p>Sistemas completos ponta a ponta: da modelagem do banco e das regras de negócio em APIs REST até interfaces responsivas, fluxos automatizados e arquiteturas multiagente.</p>
+          </article>
+          <article class="card card-trainer">
+            <h3>Ficha rápida</h3>
+            <dl class="facts">
+              <div><dt>Região</dt><dd>João Pessoa, BR</dd></div>
+              <div><dt>Classe</dt><dd>Treinador Full-Stack &amp; Dados</dd></div>
+              <div><dt>Formação</dt><dd>ADS · 2026</dd></div>
+              <div><dt>Lema</dt><dd>Sempre aprendendo, construindo e evoluindo</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projetos" aria-labelledby="proj-title">
+      <div class="wrap">
+        <p class="eyebrow">Pokédex de projetos</p>
+        <h2 id="proj-title">O que estou construindo agora</h2>
+        <p class="section-lead">Escolha um projeto na lista para ver o que ele resolve, como foi desenhado e quais tecnologias usa.</p>
+
+        <div class="dex">
+          <div class="dex-list" role="tablist" aria-label="Projetos" aria-orientation="vertical">
+            <button class="dex-tab" role="tab" id="tab-fluire" aria-controls="panel-fluire" aria-selected="true" tabindex="0" type="button">
+              <span class="dex-num">#001</span>
+              <span class="dex-name">Fluire</span>
+              <span class="dex-tag">Privado · Em produção</span>
+            </button>
+            <button class="dex-tab" role="tab" id="tab-agent" aria-controls="panel-agent" aria-selected="false" tabindex="-1" type="button">
+              <span class="dex-num">#002</span>
+              <span class="dex-name">Agent Company</span>
+              <span class="dex-tag">Open source · MIT</span>
+            </button>
+          </div>
+
+          <div class="dex-screen">
+            <article class="dex-panel" role="tabpanel" id="panel-fluire" aria-labelledby="tab-fluire" tabindex="0">
+              <header class="panel-head">
+                <h3>#001 · Fluire</h3>
+                <p class="status status-private">Privado · Em produção</p>
+              </header>
+              <p>Sistema digital completo para a gestão de estúdios de Pilates. Ele reúne em um só lugar o que a recepção e as instrutoras precisam no dia a dia.</p>
+
+              <h4>O que resolve para o estúdio</h4>
+              <ul class="feature-grid">
+                <li>Cadastro de alunos</li>
+                <li>Turmas e horários</li>
+                <li>Controle de frequência</li>
+                <li>Histórico de cada aluno</li>
+                <li>Financeiro</li>
+                <li>Notificações automatizadas</li>
+              </ul>
+
+              <h4>Arquitetura em camadas</h4>
+              <ol class="flow" aria-label="Arquitetura do Fluire">
+                <li><strong>React PWA</strong><span>Interface responsiva, instalável no celular (Vite)</span></li>
+                <li><strong>API Python/Flask</strong><span>Regras de negócio e autenticação JWT</span></li>
+                <li><strong>PostgreSQL</strong><span>Dados relacionais (Supabase)</span></li>
+                <li><strong>n8n</strong><span>Automações e notificações</span></li>
+              </ol>
+
+              <h4>Stack</h4>
+              <ul class="chips" aria-label="Tecnologias do Fluire">
+                <li class="c-back">Python</li><li class="c-back">Flask</li><li class="c-back">JWT</li>
+                <li class="c-front">React</li><li class="c-front">Vite PWA</li>
+                <li class="c-data">PostgreSQL</li><li class="c-data">Supabase</li><li class="c-auto">n8n</li>
+              </ul>
+              <p class="note">Projeto privado: o código e o ambiente não são públicos. Posso apresentar o funcionamento em uma conversa.</p>
+            </article>
+
+            <article class="dex-panel" role="tabpanel" id="panel-agent" aria-labelledby="tab-agent" tabindex="0">
+              <header class="panel-head">
+                <h3>#002 · Agent Company</h3>
+                <p class="status status-open">Open source · MIT</p>
+              </header>
+              <p>Arquitetura operacional multiagente para engenheiros de software e IA, baseada em verificação cruzada entre famílias de modelos em vez de um único prompt gigante.</p>
+
+              <ul class="stats" aria-label="Números do projeto">
+                <li><strong data-count="21">21</strong><span>agentes</span></li>
+                <li><strong data-count="7">7</strong><span>departamentos</span></li>
+                <li><strong data-count="8">8</strong><span>Core Skills</span></li>
+                <li><strong data-count="8" data-suffix="/8">8/8</strong><span>varredura de segurança</span></li>
+              </ul>
+
+              <h4>Ideias principais</h4>
+              <ul class="bullets">
+                <li><strong>Revisão cruzada:</strong> o código escrito por especialistas de uma família de modelos é auditado por revisores de outra (GPT, Gemini e Claude).</li>
+                <li><strong>Conselho cego, Fail-Closed:</strong> decisões críticas passam por duas famílias distintas; sem isso, o sistema marca o conselho como incompleto.</li>
+                <li><strong>Auditoria reproduzível:</strong> varredura de segurança em 8 pontos e medições rodando localmente e no GitHub Actions, com SQLite.</li>
+              </ul>
+
+              <details class="council">
+                <summary>Teste o Conselho Cego (simulação didática)</summary>
+                <fieldset>
+                  <legend>Quais famílias de modelos votaram?</legend>
+                  <label><input type="checkbox" name="fam" value="GPT"> GPT</label>
+                  <label><input type="checkbox" name="fam" value="Gemini"> Gemini</label>
+                  <label><input type="checkbox" name="fam" value="Claude"> Claude</label>
+                </fieldset>
+                <p class="verdict" id="verdict" role="status" aria-live="polite">Selecione ao menos duas famílias distintas.</p>
+              </details>
+
+              <h4>Stack</h4>
+              <ul class="chips" aria-label="Tecnologias do Agent Company">
+                <li class="c-back">Python</li><li class="c-data">SQLite</li><li class="c-auto">GitHub Actions</li>
+                <li class="c-auto">GPT</li><li class="c-auto">Gemini</li><li class="c-auto">Claude</li>
+              </ul>
+              <div class="links">
+                <a class="btn btn-primary" href="https://github.com/CaioRen4to/agent-company" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                <a class="btn btn-ghost" href="https://caioren4to.github.io/agent-company/" target="_blank" rel="noopener noreferrer">Portal interativo</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="moveset" aria-labelledby="move-title">
+      <div class="wrap">
+        <p class="eyebrow">Move Set</p>
+        <h2 id="move-title">Tecnologias e ferramentas</h2>
+        <p class="section-lead">Filtre por tipo para ver o que uso em cada parte de um sistema.</p>
+
+        <div class="filters" role="group" aria-label="Filtrar tecnologias por categoria">
+          <button type="button" class="filter" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" class="filter f-back" data-filter="back" aria-pressed="false"><picture><source srcset="assets/lucario-static.png" media="(prefers-reduced-motion: reduce)"><img src="assets/lucario.gif" alt="" width="16" height="30" loading="lazy" decoding="async"></picture>Backend</button>
+          <button type="button" class="filter f-front" data-filter="front" aria-pressed="false"><picture><source srcset="assets/greninja-static.png" media="(prefers-reduced-motion: reduce)"><img src="assets/greninja.gif" alt="" width="52" height="30" loading="lazy" decoding="async"></picture>Frontend</button>
+          <button type="button" class="filter f-data" data-filter="data" aria-pressed="false"><picture><source srcset="assets/metagross-static.png" media="(prefers-reduced-motion: reduce)"><img src="assets/metagross.gif" alt="" width="58" height="30" loading="lazy" decoding="async"></picture>Dados</button>
+          <button type="button" class="filter f-auto" data-filter="auto" aria-pressed="false"><picture><source srcset="assets/gengar-static.png" media="(prefers-reduced-motion: reduce)"><img src="assets/gengar.gif" alt="" width="32" height="30" loading="lazy" decoding="async"></picture>Automação &amp; IA</button>
+        </div>
+        <p class="visually-hidden" id="filter-status" role="status" aria-live="polite"></p>
+
+        <ul class="moves" id="moves">
+          <li data-cat="back" class="c-back">Python</li>
+          <li data-cat="back" class="c-back">Flask</li>
+          <li data-cat="back" class="c-back">APIs REST</li>
+          <li data-cat="back" class="c-back">JWT</li>
+          <li data-cat="front" class="c-front">React</li>
+          <li data-cat="front" class="c-front">Vite</li>
+          <li data-cat="front" class="c-front">TypeScript</li>
+          <li data-cat="front" class="c-front">JavaScript</li>
+          <li data-cat="front" class="c-front">PWA</li>
+          <li data-cat="data" class="c-data">PostgreSQL</li>
+          <li data-cat="data" class="c-data">SQL</li>
+          <li data-cat="data" class="c-data">Supabase</li>
+          <li data-cat="data" class="c-data">MySQL</li>
+          <li data-cat="data" class="c-data">SQLite</li>
+          <li data-cat="data" class="c-data">Pandas</li>
+          <li data-cat="data" class="c-data">NumPy</li>
+          <li data-cat="auto" class="c-auto">n8n</li>
+          <li data-cat="auto" class="c-auto">GitHub Actions</li>
+          <li data-cat="auto" class="c-auto">Docker</li>
+          <li data-cat="auto" class="c-auto">Git</li>
+          <li data-cat="auto" class="c-auto">GPT · Gemini · Claude</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contato" aria-labelledby="contato-title">
+      <div class="wrap">
+        <p class="eyebrow">Vamos conversar</p>
+        <h2 id="contato-title">Contato</h2>
+        <ul class="contacts">
+          <li><a href="https://github.com/CaioRen4to" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong><span>github.com/CaioRen4to</span></a></li>
+          <li><a href="https://www.linkedin.com/in/devcaiorenato" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong><span>in/devcaiorenato</span></a></li>
+          <li><a href="https://www.instagram.com/caio.renato011" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>@caio.renato011</span></a></li>
+          <li><a href="mailto:caio.renato011@gmail.com"><strong>E-mail</strong><span>caio.renato011@gmail.com</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <svg class="waves" viewBox="-100 0 1400 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="wave w1" d="M-100 40 Q 50 10 200 40 T 500 40 T 800 40 T 1100 40 T 1400 40 V80 H-100z"/>
+      <path class="wave w2" d="M-100 52 Q 50 26 200 52 T 500 52 T 800 52 T 1100 52 T 1400 52 V80 H-100z"/>
+    </svg>
+    <div class="wrap">
+      <p class="closing">Sempre aprendendo. Sempre construindo. Sempre evoluindo.</p>
+      <p class="small">© 2026 Caio Renato · Pokémon e Mega Charizard X são marcas de seus respectivos titulares; sprites via PokeAPI.</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/* Sem JavaScript: mostra tudo (seções e os dois painéis de projeto). */
+.reveal { opacity: 1 !important; transform: none !important; }
+.dex-panel + .dex-panel { margin-top: 1.4rem; }
+.menu-btn, .theme-btn { display: none; }
+.nav { display: flex !important; position: static !important; flex-wrap: wrap; }
